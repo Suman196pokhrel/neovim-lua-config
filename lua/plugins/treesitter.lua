@@ -1,7 +1,12 @@
 return {
-    "nvim-treesitter/nvim-treesitter", 
-    build = ":TSUpdate",
-    config= function()
-        vim.keymap.set('n','<C-n>',':Neotree filesystem reveal left<CR>',{})
-    end
+	"nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate",
+	config = function()
+		local config = require("nvim-treesitter.configs")
+		config.setup({
+			auto_install = true,
+			indent = { enable = true },
+            highlight={enable = true}
+		})
+	end,
 }
